@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saylani Welfare Int Trust</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="stylesheet" href="style.css">
+
+    
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div>
+            <label for="city">Select city</label>
+            <select name="city" id="city" required>
+                <option value="" selected disabled>Select city</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Peshawar">Peshawar</option>
+                <option value="Quetta">Quetta</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Balochistan">Balochistan</option>
+                <option value="Islamabad">Islamabad</option>
+            </select>
+
+        </div>
+
+        <div>
+            <label for="course">Select course or event</label>
+            <select name="course" id="course" required>
+                <option value="" selected disabled>Select course or event</option>
+                <option value="webDevelopment">Web Development</option>
+                <option value="graphicDesign">Graphic Design</option>
+                <option value="webDesign">Web Design</option>
+                <option value="videoAnimation">Video Animation</option>
+                <option value="adobePhotoShop">Adobe PhotoShop</option>
+                <option value="3dAnimation">3d Animation</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" placeholder="Full name" required>
+        </div>
+
+        <div>
+            <label for="fName">Father name</label>
+            <input type="text" id="fName" name="fName" placeholder="Father name" required>
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div>
+            <label for="phone">Phone</label>
+            <input type="number" id="phone" name="phone" placeholder="Phone" required>
+        </div>
+
+        <div>
+            <label for="cnic">CNIC</label>
+            <input type="number" id="cnic" name="cnic" placeholder="CNIC" required>
+        </div>
+
+        <div>
+            <label for="fCnic">Father's CNIC (optional)</label>
+            <input type="number" id="fCnic" name="fCnic" placeholder="Father's CNIC (optional)">
+        </div>
+
+        <div>
+            <label for="birth">Date of birth</label>
+            <input type="date" id="birth" name="birth" required>
+        </div>
+
+        <div>
+            <label for="gender">Select gender</label>
+            <select name="gender" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Address" required>
+        </div>
+
+        <div>
+            <label for="qualification">Last qualification</label>
+            <select name="qualification" id="qualification" required>
+                <option value="" selected disabled>Last qualification</option>
+                <option value="matric">Matric</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="undergraduate">Undergraduate</option>
+                <option value="graduate">Graduate</option>
+                <option value="masters">Masters</option>
+                <option value="phd">PHD</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="laptop">Do you have a Laptop?</label>
+            <select name="laptop" id="laptop" required>
+                <option value="" selected disabled>Do you have a Laptop?</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+
+
+
+
+        <div class="picture">
+            <div>
+                <label for="picture">Picture</label>
+                <div>
+                    <img src="" alt="picture" id="user">
+                    <input type="file" id="picture" name="picture" oninput="getImage(this)">
+                </div>
+            </div>
+            <ul>
+                <li>With white or blue background</li>
+                <li>File size must be less than 1MB</li>
+                <li>File type: jpg, jpeg, png</li>
+                <li>Upload your recent passport size picture</li>
+                <li>Your Face should be clearly visible without any Glasses</li>
+            </ul>
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <ol>
+            <li>I hereby, solemnly declare that the data and facts mentioned herein are true and correct to the best of my knowledge. Further, I will abide by all the established and future regulations and policies of SWIT</li>
+            <li>I hereby accept the responsibilities of good conduct and guarantee that I will not be involved in any other activity, political or ethical, but learning during my stay in the program</li>
+            <li>Defiance will render my admission canceled at any point in time.</li>
+            <li>Upon completion, of the course, I will complete the required project by SWIT.</li>
+            <li>It's mandatory for female students to wear abaya/hijab in the class</li>
+        </ol>
+
+        <input type="button" name="button" id="button" value="SUBMIT">
+    </div>
+
+
+    <script>
+        let user = document.getElementById('user')
+
+        function getImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+
+                    let png = e.target.result.includes('png');
+                    let jpg = e.target.result.includes('jpg');
+                    let jpeg = e.target.result.includes('jpeg');
+                    let gif = e.target.result.includes('gif');
+
+                    if(png || jpg || jpeg || gif) {
+                        user.setAttribute('src', e.target.result)
+                        user.style.display = 'inline';
+                    } else {
+                        user.setAttribute('alt', 'Invalid Image');
+                    }
+                    
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
